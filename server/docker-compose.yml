@@ -1,0 +1,18 @@
+
+services:
+  mariadb:
+    image: mariadb:latest
+    container_name: nestjs_mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: nest_auth
+      MYSQL_USER: nestuser
+      MYSQL_PASSWORD: nestpassword
+    ports:
+      - "3306:3306"
+    volumes:
+      - mariadb_data:/var/lib/mysql
+    restart: unless-stopped
+
+volumes:
+  mariadb_data: {}
